@@ -22,8 +22,8 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblRegistrarseop = new javax.swing.JLabel();
+        lblIniciosesion = new javax.swing.JLabel();
         txtnombreR = new javax.swing.JLabel();
         txtPassR = new javax.swing.JLabel();
         nameRegistro = new javax.swing.JTextField();
@@ -38,13 +38,15 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jLabel1.setText("Registrarse");
+        lblRegistrarseop.setText("Registrarse");
 
-        jLabel2.setText("Iniciar Sesion");
+        lblIniciosesion.setText("Iniciar Sesion");
 
         txtnombreR.setText("Nombre: ");
 
         txtPassR.setText("Contraseña: ");
+
+        passRegistro.addActionListener(this::passRegistroActionPerformed);
 
         btnRegistro.setText("Registro");
         btnRegistro.addActionListener(this::btnRegistroActionPerformed);
@@ -62,9 +64,9 @@ public class Login extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(77, 77, 77)
-                .addComponent(jLabel1)
+                .addComponent(lblRegistrarseop)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addComponent(lblIniciosesion)
                 .addGap(100, 100, 100))
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
@@ -92,8 +94,8 @@ public class Login extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(75, 75, 75)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addComponent(lblRegistrarseop)
+                    .addComponent(lblIniciosesion))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -129,6 +131,10 @@ public class Login extends javax.swing.JFrame {
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
         ScreenManager.abrirRuleta(this);
     }//GEN-LAST:event_btnRegistroActionPerformed
+
+    private void passRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passRegistroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passRegistroActionPerformed
 
     
     
@@ -205,11 +211,18 @@ public class Login extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> new Login().setVisible(true));
     }
 
+    @Override
+    public String toString() {
+        return "Login{" + "btnRegistro=" + btnRegistro + ", btnSesion=" + btnSesion + ", jLabel1=" + lblRegistrarseop + ", jLabel2=" + lblIniciosesion + ", namRegistro1=" + namRegistro1 + ", nameRegistro=" + nameRegistro + ", nameSesion=" + nameSesion + ", passRegistro=" + passRegistro + ", passRegistro1=" + passRegistro1 + ", passSesion=" + passSesion + ", txtPassR=" + txtPassR + ", txtnombreR=" + txtnombreR + '}';
+    }
+    
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistro;
     private javax.swing.JButton btnSesion;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblIniciosesion;
+    private javax.swing.JLabel lblRegistrarseop;
     private javax.swing.JLabel namRegistro1;
     private javax.swing.JTextField nameRegistro;
     private javax.swing.JTextField nameSesion;

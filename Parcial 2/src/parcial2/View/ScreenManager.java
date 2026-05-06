@@ -6,6 +6,7 @@ package parcial2.View;
 
 import javax.swing.JFrame;
 import parcial2.Controller.Controlador;
+import parcial2.Controller.ControladorLo;
 import parcial2.Model.Casino;
 import parcial2.Model.Usuario;
 import parcial2.View.Ruleta;
@@ -51,6 +52,14 @@ public class ScreenManager {
         vista.setTitle("Gestión Académica ");
         menu.setVisible(false);
 
+    }
+    public static void cerrarLogin(ControladorLo controladorr){
+        if (controladorr !=null) {
+            controladorr.finalizar();
+            controladorr=null;
+            System.err.println("pantalla cerrada");
+            
+        }
     }
 
 }
