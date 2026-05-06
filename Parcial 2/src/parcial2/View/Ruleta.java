@@ -5,6 +5,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import parcial2.Model.Usuario;
 
+
 public class Ruleta extends javax.swing.JFrame {
 
     private Usuario usuarioActual;
@@ -115,6 +116,8 @@ public class Ruleta extends javax.swing.JFrame {
         GIRAR = new javax.swing.JButton();
         btnRecargar1 = new javax.swing.JButton();
         SALDOO1 = new javax.swing.JLabel();
+        btnCerrarSesion = new javax.swing.JButton();
+        jNombre = new javax.swing.JLabel();
 
         btnActualizarSaldo.setText("Actualizar Saldo");
         btnActualizarSaldo.addActionListener(this::btnActualizarSaldoActionPerformed);
@@ -1127,10 +1130,20 @@ public class Ruleta extends javax.swing.JFrame {
         btnRecargar1.setForeground(new java.awt.Color(0, 0, 0));
         btnRecargar1.setText("Recargar");
         btnRecargar1.addActionListener(this::btnRecargar1ActionPerformed);
-        jPanel1.add(btnRecargar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 110, 40));
+        jPanel1.add(btnRecargar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, 110, 40));
 
         SALDOO1.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(SALDOO1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 100, 20));
+
+        btnCerrarSesion.setBackground(new java.awt.Color(153, 153, 153));
+        btnCerrarSesion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnCerrarSesion.setForeground(new java.awt.Color(0, 0, 0));
+        btnCerrarSesion.setText("Cerrar Sesión");
+        btnCerrarSesion.addActionListener(this::btnCerrarSesionActionPerformed);
+        jPanel1.add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 540, 160, 40));
+
+        jNombre.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, 220, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1219,93 +1232,100 @@ public class Ruleta extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnActualizarSaldoActionPerformed
 
-    public JTextField getCreditos() {
-        return Creditos;
+    private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
 
-    }
+        dispose(); 
+        ScreenManager.abrirLogin();
+          
+    }//GEN-LAST:event_btnCerrarSesionActionPerformed
+
+    public JTextField getCreditos() {
+    return Creditos;
+
+}
 
     public void setCreditos(JTextField Creditos) {
-        this.Creditos = Creditos;
-    }
+    this.Creditos = Creditos;
+}
 
     public JButton getGIRAR() {
-        return GIRAR;
-    }
+    return GIRAR;
+}
 
     public void setGIRAR(JButton GIRAR) {
-        this.GIRAR = GIRAR;
-    }
+    this.GIRAR = GIRAR;
+}
 
     public JTextField getNUM() {
-        return NUM;
-    }
+    return NUM;
+}
 
     public void setNUM(JTextField NUM) {
-        this.NUM = NUM;
-    }
+    this.NUM = NUM;
+}
 
     public JLabel getSALDOO() {
-        return SALDOO;
-    }
+    return SALDOO;
+}
 
     public void setSALDOO(JLabel SALDOO) {
-        this.SALDOO = SALDOO;
-    }
+    this.SALDOO = SALDOO;
+}
 
     public JTextField getCantApostar() {
-        return cantApostar;
-    }
+    return cantApostar;
+}
 
     public void setCantApostar(JTextField cantApostar) {
-        this.cantApostar = cantApostar;
-    }
+    this.cantApostar = cantApostar;
+}
 
     public JButton getBtnActualizarSaldo() {
-        return btnActualizarSaldo;
-    }
+    return btnActualizarSaldo;
+}
 
     public void setBtnActualizarSaldo(JButton btnActualizarSaldo) {
-        this.btnActualizarSaldo = btnActualizarSaldo;
-    }
+    this.btnActualizarSaldo = btnActualizarSaldo;
+}
 
     public JButton getBtnRecargar1() {
-        return btnRecargar1;
-    }
+    return btnRecargar1;
+}
 
     public void setBtnRecargar1(JButton btnRecargar1) {
-        this.btnRecargar1 = btnRecargar1;
-    }
+    this.btnRecargar1 = btnRecargar1;
+}
 
     public void actualizarSaldo(double saldo) {
         SALDOO.setText(String.valueOf(saldo));
-    }
+}
 
     public void mostrarMensaje(String mensaje) {
-        javax.swing.JOptionPane.showMessageDialog(this, mensaje);
-    }
+    javax.swing.JOptionPane.showMessageDialog(this, mensaje);
+}
     
      
 
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+    /* Set the Nimbus look and feel */
+    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+     */
+    try {
+        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            if ("Nimbus".equals(info.getName())) {
+                javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                break;
             }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-
-        /* Create and display the form */
+    } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+        logger.log(java.util.logging.Level.SEVERE, null, ex);
     }
+    //</editor-fold>
+
+    /* Create and display the form */
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Creditos;
@@ -1314,6 +1334,7 @@ public class Ruleta extends javax.swing.JFrame {
     private javax.swing.JLabel SALDOO;
     private javax.swing.JLabel SALDOO1;
     private javax.swing.JButton btnActualizarSaldo;
+    private javax.swing.JButton btnCerrarSesion;
     private javax.swing.JButton btnRecargar1;
     private javax.swing.JTextField cantApostar;
     private javax.swing.JLabel jLabel1;
@@ -1357,6 +1378,7 @@ public class Ruleta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jNombre;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel12;

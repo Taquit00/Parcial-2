@@ -39,7 +39,7 @@ public class ControladorLo implements ActionListener{
             registrar();            
         } else if (e.getSource()== vista.getBtnSesion()) {
             iniciosecion(); 
-            ScreenManager.abrirRuleta(usuario);
+            //ScreenManager.abrirRuleta(usuario);
         }
     }
     private void registrar(){

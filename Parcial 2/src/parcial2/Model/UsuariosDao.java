@@ -28,4 +28,14 @@ public class UsuariosDao {
         }
         return null;
     }
+    
+    public boolean guardar(Usuario user) {
+        try {
+            return usuarios.add(user);
+           
+        } catch (Exception e) {
+            System.err.println("Error al guardar: " + e.getMessage());
+            return false;
+        }
+    }
 }

@@ -253,9 +253,6 @@ public class Login extends javax.swing.JFrame {
         this.txtnombreR = txtnombreR;
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public void setPassSesion(JTextField passSesion) {
         this.passSesion = passSesion;
     }
