@@ -1173,7 +1173,7 @@ public class Ruleta extends javax.swing.JFrame {
             int resultado = (int) (Math.random() * 37);
 
             if (resultado == numeroElegido) {
-                double premio = apuesta * 35;
+                double premio = apuesta * 36;
                 usuarioActual.ganar(premio);
                 mostrarMensaje("¡Ganaste! Número: " + resultado + " Premio: $" + premio);
             } else {

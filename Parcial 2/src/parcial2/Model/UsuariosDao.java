@@ -1,25 +1,31 @@
-
 package parcial2.Model;
 
 import java.util.ArrayList;
-import java.util.List;
-
 
 public class UsuariosDao {
-    
-    
 
-    private static List<Usuario> listaUsuarios = new ArrayList<>();
+    private static ArrayList<Usuario> usuarios = new ArrayList<>();
 
-
-    public boolean guardar(Usuario user) {
-        try {
-            return listaUsuarios.add(user);
-           
-        } catch (Exception e) {
-            System.err.println("Error al guardar: " + e.getMessage());
-            return false;
+    // Registrar usuario
+    public static boolean registrar(String nombre, String password) {
+        // Verificar si ya existe
+        for (Usuario u : usuarios) {
+            if (u.getNombre().equals(nombre)) {
+                return false; // ya existe
+            }
         }
+
+        usuarios.add(new Usuario(nombre, password));
+        return true;
+    }
+
+    // Login
+    public static Usuario login(String nombre, String password) {
+        for (Usuario u : usuarios) {
+            if (u.getNombre().equals(nombre) && u.getPassword().equals(password)) {
+                return u;
+            }
+        }
+        return null;
     }
 }
-

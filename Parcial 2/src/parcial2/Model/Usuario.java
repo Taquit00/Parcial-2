@@ -1,48 +1,34 @@
-
 package parcial2.Model;
 
-
 public class Usuario {
-    private String username;
+    private String nombre;
     private String password;
     private double saldo;
 
-    public Usuario(String username, String password) {
-        this.username = username;
+    public Usuario(String nombre, String password) {
+        this.nombre = nombre;
         this.password = password;
-        this.saldo = 0.0;
+        this.saldo = 0;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public String getNombre() {
+        return nombre;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public double getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
-    }
-    
     public void recargar(double monto) {
         saldo += monto;
     }
 
     public boolean apostar(double monto) {
-        if (monto <= saldo) {
+        if (saldo >= monto) {
             saldo -= monto;
             return true;
         }
@@ -52,5 +38,6 @@ public class Usuario {
     public void ganar(double monto) {
         saldo += monto;
     }
-}
 
+
+}

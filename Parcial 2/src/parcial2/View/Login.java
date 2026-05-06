@@ -1,14 +1,12 @@
-
 package parcial2.View;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-
+import parcial2.Model.Usuario;
+import parcial2.Model.UsuariosDao;
 
 public class Login extends javax.swing.JFrame {
-    
- 
 
     public Login() {
         initComponents();
@@ -35,6 +33,7 @@ public class Login extends javax.swing.JFrame {
         nameSesion = new javax.swing.JTextField();
         passSesion = new javax.swing.JTextField();
         btnSesion = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -58,6 +57,10 @@ public class Login extends javax.swing.JFrame {
 
         btnSesion.setText("Iniciar sesion");
         btnSesion.addActionListener(this::btnSesionActionPerformed);
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel1.setText("REGISTRO DE SESION CASINO 1.0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -89,11 +92,17 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(passSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nameSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(160, 160, 160))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(75, 75, 75)
+                .addGap(13, 13, 13)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRegistrarseop)
                     .addComponent(lblIniciosesion))
@@ -126,11 +135,30 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSesionActionPerformed
-        ScreenManager.abrirRuleta(this);
+        String nombre = nameSesion.getText();
+        String pass = passSesion.getText();
+
+        Usuario usuario = UsuariosDao.login(nombre, pass);
+
+        if (usuario != null) {
+            ScreenManager.abrirRuleta(usuario);
+            this.dispose();
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Datos incorrectos");
+        }
     }//GEN-LAST:event_btnSesionActionPerformed
 
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
-        ScreenManager.abrirRuleta(this);
+        String nombre = nameRegistro.getText();
+        String pass = passRegistro.getText();
+
+        boolean registrado = UsuariosDao.registrar(nombre, pass);
+
+        if (registrado) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Usuario registrado correctamente");
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "El usuario ya existe");
+        }
     }//GEN-LAST:event_btnRegistroActionPerformed
 
     private void passRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passRegistroActionPerformed
@@ -225,9 +253,6 @@ public class Login extends javax.swing.JFrame {
         this.txtnombreR = txtnombreR;
     }
 
-    
-    
-
     /**
      * @param args the command line arguments
      */
@@ -240,7 +265,7 @@ public class Login extends javax.swing.JFrame {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-        */
+         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -263,11 +288,10 @@ public class Login extends javax.swing.JFrame {
     }
 
 
-
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistro;
     private javax.swing.JButton btnSesion;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblIniciosesion;
     private javax.swing.JLabel lblRegistrarseop;
     private javax.swing.JLabel namRegistro1;

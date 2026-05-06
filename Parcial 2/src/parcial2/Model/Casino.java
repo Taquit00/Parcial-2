@@ -9,7 +9,7 @@ public class Casino {
 
     public static Usuario login(String user, String pass) {
         for (Usuario u : usuarios) {
-            if (u.getUsername().equals(user) && u.getPassword().equals(pass)) {
+            if (u.getNombre().equals(user) && u.getPassword().equals(pass)) {
                 return u;
             }
         }

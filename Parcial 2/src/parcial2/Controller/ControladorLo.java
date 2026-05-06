@@ -29,10 +29,7 @@ public class ControladorLo implements ActionListener{
         this.vista.getBtnSesion().addActionListener(this);
         
         this.vista.addWindowListener(new java.awt.event.WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                ScreenManager.cerrarLogin(ControladorLo.this);
-            }            
+          
         }); 
     }
 
@@ -42,7 +39,7 @@ public class ControladorLo implements ActionListener{
             registrar();            
         } else if (e.getSource()== vista.getBtnSesion()) {
             iniciosecion(); 
-            ScreenManager.abrirRuleta(vista);
+            ScreenManager.abrirRuleta(usuario);
         }
     }
     private void registrar(){
