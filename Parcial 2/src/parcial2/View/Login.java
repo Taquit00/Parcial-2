@@ -2,12 +2,13 @@
 package parcial2.View;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 
 public class Login extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Login.class.getName());
+ 
 
     public Login() {
         initComponents();
@@ -136,8 +137,6 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_passRegistroActionPerformed
 
-    
-    
     public JButton getBtnRegistro() {
         return btnRegistro;
     }
@@ -152,6 +151,30 @@ public class Login extends javax.swing.JFrame {
 
     public void setBtnSesion(JButton btnSesion) {
         this.btnSesion = btnSesion;
+    }
+
+    public JLabel getLblIniciosesion() {
+        return lblIniciosesion;
+    }
+
+    public void setLblIniciosesion(JLabel lblIniciosesion) {
+        this.lblIniciosesion = lblIniciosesion;
+    }
+
+    public JLabel getLblRegistrarseop() {
+        return lblRegistrarseop;
+    }
+
+    public void setLblRegistrarseop(JLabel lblRegistrarseop) {
+        this.lblRegistrarseop = lblRegistrarseop;
+    }
+
+    public JLabel getNamRegistro1() {
+        return namRegistro1;
+    }
+
+    public void setNamRegistro1(JLabel namRegistro1) {
+        this.namRegistro1 = namRegistro1;
     }
 
     public JTextField getNameRegistro() {
@@ -178,9 +201,32 @@ public class Login extends javax.swing.JFrame {
         this.passRegistro = passRegistro;
     }
 
-    public JTextField getPassSesion() {
-        return passSesion;
+    public JLabel getPassRegistro1() {
+        return passRegistro1;
     }
+
+    public void setPassRegistro1(JLabel passRegistro1) {
+        this.passRegistro1 = passRegistro1;
+    }
+
+    public JLabel getTxtPassR() {
+        return txtPassR;
+    }
+
+    public void setTxtPassR(JLabel txtPassR) {
+        this.txtPassR = txtPassR;
+    }
+
+    public JLabel getTxtnombreR() {
+        return txtnombreR;
+    }
+
+    public void setTxtnombreR(JLabel txtnombreR) {
+        this.txtnombreR = txtnombreR;
+    }
+
+    
+    
 
     /**
      * @param args the command line arguments
@@ -213,9 +259,10 @@ public class Login extends javax.swing.JFrame {
 
     @Override
     public String toString() {
-        return "Login{" + "btnRegistro=" + btnRegistro + ", btnSesion=" + btnSesion + ", jLabel1=" + lblRegistrarseop + ", jLabel2=" + lblIniciosesion + ", namRegistro1=" + namRegistro1 + ", nameRegistro=" + nameRegistro + ", nameSesion=" + nameSesion + ", passRegistro=" + passRegistro + ", passRegistro1=" + passRegistro1 + ", passSesion=" + passSesion + ", txtPassR=" + txtPassR + ", txtnombreR=" + txtnombreR + '}';
+        return "Login{" + "btnRegistro=" + btnRegistro + ", btnSesion=" + btnSesion + ", lblIniciosesion=" + lblIniciosesion + ", lblRegistrarseop=" + lblRegistrarseop + ", namRegistro1=" + namRegistro1 + ", nameRegistro=" + nameRegistro + ", nameSesion=" + nameSesion + ", passRegistro=" + passRegistro + ", passRegistro1=" + passRegistro1 + ", passSesion=" + passSesion + ", txtPassR=" + txtPassR + ", txtnombreR=" + txtnombreR + '}';
     }
-    
+
+
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

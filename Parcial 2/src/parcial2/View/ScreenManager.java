@@ -1,23 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package parcial2.View;
 
 import javax.swing.JFrame;
-import parcial2.Controller.Controlador;
 import parcial2.Controller.ControladorLo;
 import parcial2.Model.Casino;
 import parcial2.Model.Usuario;
-import parcial2.View.Ruleta;
 
 public class ScreenManager {
 
+    private static JFrame ventanaActual;
+
+    
     private static JFrame current;
 
     public static void show(JFrame newScreen) {
         if (current != null) {
-            current.dispose(); 
+            current.dispose();
         }
         current = newScreen;
         current.setVisible(true);
@@ -28,7 +25,7 @@ public class ScreenManager {
 
         Usuario u = Casino.login(user, pass);
         if (u != null) {
-            
+
         } else {
 
         }
@@ -36,32 +33,30 @@ public class ScreenManager {
     }
 
     public static void abrirLogin() {
-        Login menu = new Login();
-        menu.setVisible(true);
-        menu.setLocationRelativeTo(null);
-        menu.setTitle("Registro");
+        Login login = new Login();
+        login.setVisible(true);
+        login.setLocationRelativeTo(null);
+        login.setTitle("Registro");
     }
 
-    public static void abrirRuleta(Login menu) {
+    public static void abrirRuleta(Login login) {
 
-        Ruleta vista = new Ruleta(menu);
-
+        Ruleta vista = new Ruleta(login);
 
         vista.setVisible(true);
         vista.setLocationRelativeTo(null);
         vista.setTitle("Gestión Académica ");
-        menu.setVisible(false);
+        login.setVisible(false);
 
     }
-    public static void cerrarLogin(ControladorLo controladorr){
-        if (controladorr !=null) {
+
+    public static void cerrarLogin(ControladorLo controladorr) {
+        if (controladorr != null) {
             controladorr.finalizar();
-            controladorr=null;
+            controladorr = null;
             System.err.println("pantalla cerrada");
-            
+
         }
     }
 
 }
-
-

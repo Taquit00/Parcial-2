@@ -1,22 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package parcial2.View;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-public class Ruleta extends javax.swing.JFrame {
-    
-    
+import parcial2.Model.Usuario;
 
-    public Ruleta(Login login) {
+public class Ruleta extends javax.swing.JFrame {
+
+    private Usuario usuarioActual;
+
+    public Ruleta(Usuario usuario) {
         initComponents();
+        this.usuarioActual = usuario;
+        actualizarSaldo(usuario.getSaldo());
+        btnActualizarSaldo.addActionListener(e -> {
+            actualizarSaldo(usuarioActual.getSaldo());
+        });
     }
 
-  
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,6 +28,7 @@ public class Ruleta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnActualizarSaldo = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -101,7 +104,6 @@ public class Ruleta extends javax.swing.JFrame {
         jLabel38 = new javax.swing.JLabel();
         jPanel40 = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         NUM = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
@@ -109,9 +111,13 @@ public class Ruleta extends javax.swing.JFrame {
         jLabel42 = new javax.swing.JLabel();
         Creditos = new javax.swing.JTextField();
         jLabel43 = new javax.swing.JLabel();
-        jLabel44 = new javax.swing.JLabel();
         cantApostar = new javax.swing.JTextField();
         GIRAR = new javax.swing.JButton();
+        btnRecargar1 = new javax.swing.JButton();
+        SALDOO1 = new javax.swing.JLabel();
+
+        btnActualizarSaldo.setText("Actualizar Saldo");
+        btnActualizarSaldo.addActionListener(this::btnActualizarSaldoActionPerformed);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1049,8 +1055,8 @@ public class Ruleta extends javax.swing.JFrame {
             jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel40Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
-                .addComponent(jLabel39)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         jPanel40Layout.setVerticalGroup(
             jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1062,12 +1068,9 @@ public class Ruleta extends javax.swing.JFrame {
 
         jPanel1.add(jPanel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 290, 120, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("$");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, -1, 20));
-
-        NUM.setBackground(new java.awt.Color(102, 102, 102));
+        NUM.setBackground(new java.awt.Color(153, 153, 153));
+        NUM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        NUM.setForeground(new java.awt.Color(0, 0, 0));
         NUM.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
@@ -1076,44 +1079,58 @@ public class Ruleta extends javax.swing.JFrame {
             }
         });
         NUM.addActionListener(this::NUMActionPerformed);
-        jPanel1.add(NUM, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 100, -1));
+        jPanel1.add(NUM, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 146, 30, 30));
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 21)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Saldo: ");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 40, 20));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 80, 30));
 
+        jLabel40.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel40.setForeground(new java.awt.Color(0, 0, 0));
         jLabel40.setText("Ingrese la cantidad a apostar: ");
-        jPanel1.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, 20));
+        jPanel1.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, 30));
 
+        SALDOO.setFont(new java.awt.Font("Segoe UI", 0, 21)); // NOI18N
         SALDOO.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(SALDOO, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 70, 20));
+        jPanel1.add(SALDOO, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 240, 30));
 
+        jLabel42.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel42.setForeground(new java.awt.Color(0, 0, 0));
         jLabel42.setText("Escriba su numero a apostar: ");
-        jPanel1.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, 20));
+        jPanel1.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, 30));
 
-        Creditos.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel1.add(Creditos, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 100, -1));
+        Creditos.setBackground(new java.awt.Color(153, 153, 153));
+        Creditos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Creditos.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(Creditos, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 100, 30));
 
+        jLabel43.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel43.setForeground(new java.awt.Color(0, 0, 0));
         jLabel43.setText("Ingresar creditos: ");
-        jPanel1.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, 20));
+        jPanel1.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, 30));
 
-        jLabel44.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel44.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel44.setText("$");
-        jPanel1.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, -1, 20));
-
-        cantApostar.setBackground(new java.awt.Color(102, 102, 102));
+        cantApostar.setBackground(new java.awt.Color(153, 153, 153));
+        cantApostar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cantApostar.setForeground(new java.awt.Color(0, 0, 0));
         cantApostar.addActionListener(this::cantApostarActionPerformed);
-        jPanel1.add(cantApostar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 100, -1));
+        jPanel1.add(cantApostar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 100, 30));
 
         GIRAR.setBackground(new java.awt.Color(0, 153, 153));
         GIRAR.setFont(new java.awt.Font("Times New Roman", 0, 48)); // NOI18N
         GIRAR.setText("GIRAR");
         GIRAR.addActionListener(this::GIRARActionPerformed);
         jPanel1.add(GIRAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 230, 120));
+
+        btnRecargar1.setBackground(new java.awt.Color(153, 153, 153));
+        btnRecargar1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnRecargar1.setForeground(new java.awt.Color(0, 0, 0));
+        btnRecargar1.setText("Recargar");
+        btnRecargar1.addActionListener(this::btnRecargar1ActionPerformed);
+        jPanel1.add(btnRecargar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 110, 40));
+
+        SALDOO1.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(SALDOO1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 100, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1130,11 +1147,45 @@ public class Ruleta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void NUMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NUMActionPerformed
-        
+
     }//GEN-LAST:event_NUMActionPerformed
 
     private void GIRARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GIRARActionPerformed
-    
+        try {
+            int numeroElegido = Integer.parseInt(NUM.getText());
+            double apuesta = Double.parseDouble(cantApostar.getText());
+
+            if (numeroElegido < 0 || numeroElegido > 36) {
+                mostrarMensaje("Número inválido (0-36)");
+                return;
+            }
+
+            if (apuesta <= 0) {
+                mostrarMensaje("Apuesta inválida");
+                return;
+            }
+
+            if (!usuarioActual.apostar(apuesta)) {
+                mostrarMensaje("Saldo insuficiente");
+                return;
+            }
+
+            int resultado = (int) (Math.random() * 37);
+
+            if (resultado == numeroElegido) {
+                double premio = apuesta * 35;
+                usuarioActual.ganar(premio);
+                mostrarMensaje("¡Ganaste! Número: " + resultado + " Premio: $" + premio);
+            } else {
+                mostrarMensaje("Perdiste. Numero ganado: " + resultado);
+            }
+
+            actualizarSaldo(usuarioActual.getSaldo());
+
+        } catch (NumberFormatException e) {
+            mostrarMensaje("Ingrese valores válidos");
+        }
+
     }//GEN-LAST:event_GIRARActionPerformed
 
     private void cantApostarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantApostarActionPerformed
@@ -1145,11 +1196,32 @@ public class Ruleta extends javax.swing.JFrame {
 
     }//GEN-LAST:event_NUMInputMethodTextChanged
 
-    
-    
+    private void btnRecargar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecargar1ActionPerformed
+        try {
+            double monto = Double.parseDouble(Creditos.getText());
+
+            if (monto <= 0) {
+                mostrarMensaje("Monto inválido");
+                return;
+            }
+
+            usuarioActual.recargar(monto);
+            actualizarSaldo(usuarioActual.getSaldo());
+
+            mostrarMensaje("Recarga exitosa");
+
+        } catch (NumberFormatException e) {
+            mostrarMensaje("Ingrese un número válido");
+        }
+    }//GEN-LAST:event_btnRecargar1ActionPerformed
+
+    private void btnActualizarSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarSaldoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActualizarSaldoActionPerformed
+
     public JTextField getCreditos() {
         return Creditos;
-    
+
     }
 
     public void setCreditos(JTextField Creditos) {
@@ -1184,17 +1256,42 @@ public class Ruleta extends javax.swing.JFrame {
         return cantApostar;
     }
 
-
     public void setCantApostar(JTextField cantApostar) {
         this.cantApostar = cantApostar;
     }
+
+    public JButton getBtnActualizarSaldo() {
+        return btnActualizarSaldo;
+    }
+
+    public void setBtnActualizarSaldo(JButton btnActualizarSaldo) {
+        this.btnActualizarSaldo = btnActualizarSaldo;
+    }
+
+    public JButton getBtnRecargar1() {
+        return btnRecargar1;
+    }
+
+    public void setBtnRecargar1(JButton btnRecargar1) {
+        this.btnRecargar1 = btnRecargar1;
+    }
+
+    public void actualizarSaldo(double saldo) {
+        SALDOO.setText(String.valueOf(saldo));
+    }
+
+    public void mostrarMensaje(String mensaje) {
+        javax.swing.JOptionPane.showMessageDialog(this, mensaje);
+    }
+    
+     
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-        */
+         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -1215,6 +1312,9 @@ public class Ruleta extends javax.swing.JFrame {
     private javax.swing.JButton GIRAR;
     private javax.swing.JTextField NUM;
     private javax.swing.JLabel SALDOO;
+    private javax.swing.JLabel SALDOO1;
+    private javax.swing.JButton btnActualizarSaldo;
+    private javax.swing.JButton btnRecargar1;
     private javax.swing.JTextField cantApostar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1227,7 +1327,6 @@ public class Ruleta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -1253,7 +1352,6 @@ public class Ruleta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
